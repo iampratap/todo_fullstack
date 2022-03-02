@@ -1,1 +1,8 @@
-<p>edit-todo works!</p>
+<legend>Edit task</legend>
+
+<div class="form-group">
+    <label for="">Change task</label>
+    <input type="text" class="form-control" id="" [(ngModel)]="task">
+</div>
+
+<button type="submit" class="btn btn-primary" (click)="update()">Submit</button>

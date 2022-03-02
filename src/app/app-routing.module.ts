@@ -10,7 +10,7 @@ const routes: Routes = [
   {path:'home', component:HomeComponent, children:[
     {path:'', redirectTo:'todolist', pathMatch:'full'},
     {path:'add', component:AddTodoComponent},
-    {path:'edit', component:EditTodoComponent},
+    {path:'edit/:index', component:EditTodoComponent},
     {path:'todolist', component:TodoListComponent},
     {path:'**', redirectTo:'todolist'}
   ]},
