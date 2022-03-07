@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -9,14 +9,31 @@ export class RestService {
 
   constructor(private _http: HttpClient) { }
 
+  login(data:any){
+    const url = environment.server_url + 'login';
+    return this._http.post(url,data);
+  }
+
   getAllTodo(){
+    const httpOptions = {
+      headers: new HttpHeaders({      
+        'Authorization': <string> localStorage.getItem('token') 
+      })
+    };
+
     const url = environment.server_url + 'get_todo';
-    return this._http.get(url);
+    return this._http.get(url, httpOptions);
   }
   
   addTask(data:any){
+    const httpOptions = {
+      headers: new HttpHeaders({      
+        'Authorization': <string> localStorage.getItem('token') 
+      })
+    };
+
     const url = environment.server_url + 'add_task';
-    return this._http.post(url, data);
+    return this._http.post(url, data, httpOptions);
   }
 
   update(data:any){

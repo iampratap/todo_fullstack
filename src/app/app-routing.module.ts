@@ -4,9 +4,11 @@ import { AddTodoComponent } from './home/add-todo/add-todo.component';
 import { EditTodoComponent } from './home/edit-todo/edit-todo.component';
 import { HomeComponent } from './home/home.component';
 import { TodoListComponent } from './home/todo-list/todo-list.component';
+import { LoginComponent } from './pages/login/login.component';
 
 const routes: Routes = [
   {path:'', redirectTo:'home', pathMatch:'full'},
+  {path:'login', component:LoginComponent},
   {path:'home', component:HomeComponent, children:[
     {path:'', redirectTo:'todolist', pathMatch:'full'},
     {path:'add', component:AddTodoComponent},
